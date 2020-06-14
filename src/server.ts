@@ -20,6 +20,7 @@ const server = new ApolloServer({
   dataSources: () => {
     return {
       seasons: new datasources.SeasonsData(),
+      races: new datasources.RaceData(),
     };
   },
 });

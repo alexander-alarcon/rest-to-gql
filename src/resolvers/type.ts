@@ -11,6 +11,33 @@ const type: IResolvers = {
       return urlParser(parent.url);
     },
   },
+
+  Race: {
+    name(parent) {
+      return parent.raceName;
+    },
+    circuit(parent) {
+      return parent.Circuit;
+    },
+  },
+
+  Circuit: {
+    id(parent) {
+      return parent.circuitId;
+    },
+    name(parent) {
+      return parent.circuitName;
+    },
+    location(parent) {
+      return parent.Location;
+    },
+  },
+
+  Location: {
+    lng(parent) {
+      return parent.long;
+    },
+  },
 };
 
 export default type;
