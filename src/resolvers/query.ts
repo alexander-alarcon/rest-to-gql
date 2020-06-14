@@ -38,6 +38,20 @@ const query: IResolvers = {
 
       return data;
     },
+
+    async driversByYear(_, { year }: { year: string }, { dataSources }) {
+      const data = await dataSources.drivers.getDriversByYear(year);
+      return data;
+    },
+
+    async driversByYearAndRound(
+      _,
+      { year, round }: { year: string; round: number },
+      { dataSources },
+    ) {
+      const data = await dataSources.drivers.getDriversByYear(year, round);
+      return data;
+    },
   },
 };
 
