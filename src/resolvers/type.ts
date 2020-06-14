@@ -19,6 +19,9 @@ const type: IResolvers = {
     circuit(parent) {
       return parent.Circuit;
     },
+    urlMobile(parent) {
+      return urlParser(parent.url);
+    },
   },
 
   Circuit: {
@@ -30,6 +33,9 @@ const type: IResolvers = {
     },
     location(parent) {
       return parent.Location;
+    },
+    urlMobile(parent) {
+      return urlParser(parent.url);
     },
   },
 
