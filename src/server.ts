@@ -3,6 +3,7 @@ import { ApolloServer } from 'apollo-server-express';
 import compression from 'compression';
 import cors from 'cors';
 
+import { datasources } from './data';
 import schema from './schema';
 
 const app: Application = express();
@@ -16,6 +17,9 @@ const server = new ApolloServer({
   engine: {
     endpointUrl: '/graphql',
   },
+  dataSources: () => ({
+    seasons: new datasources.SeasonsData(),
+  }),
 });
 
 server.applyMiddleware({ app });
