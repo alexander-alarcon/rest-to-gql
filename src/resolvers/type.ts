@@ -44,6 +44,18 @@ const type: IResolvers = {
       return parent.long;
     },
   },
+
+  Driver: {
+    id(parent) {
+      return parent.driverId;
+    },
+    name(parent) {
+      return `${parent.givenName} ${parent.familyName}`;
+    },
+    urlMobile(parent) {
+      return urlParser(parent.url);
+    },
+  },
 };
 
 export default type;

@@ -6,13 +6,15 @@ class SeasonsData extends F1 {
   }
 
   async getSeasons() {
-    return await this.get(
-      'f1/seasons.json',
+    const data = await this.get(
+      '/seasons.json',
       {},
       {
         cacheOptions: { ttl: 60 },
       },
     );
+
+    return data?.MRData?.SeasonTable?.Seasons || [];
   }
 }
 

@@ -6,7 +6,7 @@ const query: IResolvers = {
     async seasonList(_, __, { dataSources }) {
       const data = await dataSources.seasons.getSeasons();
 
-      return data.MRData.SeasonTable.Seasons;
+      return data;
     },
 
     async raceByYear(_, { year }: { year: string }, { dataSources }) {
@@ -26,6 +26,16 @@ const query: IResolvers = {
           'NOT FOUND',
         );
       }
+      return data;
+    },
+
+    async drivers(
+      _,
+      { perPage = 10, page = 1 }: { perPage: number; page: number },
+      { dataSources },
+    ) {
+      const data = await dataSources.drivers.getDrivers(perPage, page);
+
       return data;
     },
   },

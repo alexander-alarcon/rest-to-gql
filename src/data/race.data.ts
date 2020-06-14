@@ -9,7 +9,7 @@ class RaceData extends F1 {
   async getYear(year: string) {
     const validYear = checkYear(year);
     const data = await this.get(
-      `f1/${validYear}.json`,
+      `/${validYear}.json`,
       {},
       {
         cacheOptions: { ttl: 60 },
@@ -21,7 +21,7 @@ class RaceData extends F1 {
   async getRoundByYear(year: string, round: number) {
     const validYear = checkYear(year);
     const validRound = checkRound(round);
-    const path = `f1/${validYear}/${validRound}.json`;
+    const path = `/${validYear}/${validRound}.json`;
     const data = await this.get(
       path,
       {},
