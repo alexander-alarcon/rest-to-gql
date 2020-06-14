@@ -1,5 +1,9 @@
 type Query {
-  hello: String!
-  helloWithName(name: String!): String!
-  helloGraphql: String!
+  seasonList: [Season!]!
+}
+
+type Season {
+  year: String!
+  url: String!
+  urlMobile: String!
 }

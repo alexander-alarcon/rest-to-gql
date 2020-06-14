@@ -17,9 +17,11 @@ const server = new ApolloServer({
   engine: {
     endpointUrl: '/graphql',
   },
-  dataSources: () => ({
-    seasons: new datasources.SeasonsData(),
-  }),
+  dataSources: () => {
+    return {
+      seasons: new datasources.SeasonsData(),
+    };
+  },
 });
 
 server.applyMiddleware({ app });
