@@ -47,6 +47,18 @@ class DirverData extends F1 {
 
     return data?.MRData?.DriverTable?.Drivers || [];
   }
+
+  async getDriversById(id: string) {
+    const data = await this.get(
+      `/drivers/${id}.json`,
+      {},
+      {
+        cacheOptions: { ttl: 60 },
+      },
+    );
+
+    return data?.MRData?.DriverTable?.Drivers[0];
+  }
 }
 
 export default DirverData;

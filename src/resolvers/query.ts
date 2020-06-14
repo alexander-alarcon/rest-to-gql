@@ -52,6 +52,14 @@ const query: IResolvers = {
       const data = await dataSources.drivers.getDriversByYear(year, round);
       return data;
     },
+
+    async driversById(_, { id }: { id: string }, { dataSources }) {
+      const data = await dataSources.drivers.getDriversById(id);
+      if (!data) {
+        throw new ApolloError(`Driver with ${id}, was not found`, 'NOT FOUND');
+      }
+      return data;
+    },
   },
 };
 

@@ -5,6 +5,7 @@ type Query {
   drivers(perPage: Int, page: Int): [Driver!]!
   driversByYear(year: String!): [Driver!]!
   driversByYearAndRound(year: String!, round: Int!): [Driver!]!
+  driversById(id: String!): Driver!
 }
 
 type Season {
