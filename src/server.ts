@@ -10,6 +10,7 @@ import { datasources } from './data';
 import schema from './schema';
 
 const app: Application = express();
+const { PORT = 3000, NODE_ENV = 'production' } = process.env;
 
 app.use(cors());
 app.use(compression());
@@ -29,11 +30,10 @@ const server = new ApolloServer({
       circuits: new datasources.CircuitData(),
     };
   },
+  debug: NODE_ENV === 'production' ? false : true,
 });
 
 server.applyMiddleware({ app });
-
-const { PORT = 3000 } = process.env;
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
