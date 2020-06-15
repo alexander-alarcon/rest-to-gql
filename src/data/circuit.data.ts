@@ -18,6 +18,18 @@ class CircuitData extends F1 {
 
     return data?.MRData?.CircuitTable?.Circuits || [];
   }
+
+  async getCircuitById(id: string) {
+    const data = await this.get(
+      `/circuits/${id}.json`,
+      {},
+      {
+        cacheOptions: { ttl: 60 },
+      },
+    );
+
+    return data?.MRData?.CircuitTable?.Circuits?.[0];
+  }
 }
 
 export default CircuitData;

@@ -80,6 +80,14 @@ const query: IResolvers = {
 
       return data;
     },
+
+    async circuitById(_, { id }: { id: string }, { dataSources }) {
+      const data = await dataSources.circuits.getCircuitById(id);
+      if (!data) {
+        throw new ApolloError(`Circuit with ${id}, was not found`, 'NOT FOUND');
+      }
+      return data;
+    },
   },
 };
 
