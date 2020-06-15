@@ -70,6 +70,16 @@ const query: IResolvers = {
 
       return data;
     },
+
+    async circuits(
+      _,
+      { perPage = 10, page = 1 }: { perPage: number; page: number },
+      { dataSources },
+    ) {
+      const data = await dataSources.circuits.getCircuits(perPage, page);
+
+      return data;
+    },
   },
 };
 

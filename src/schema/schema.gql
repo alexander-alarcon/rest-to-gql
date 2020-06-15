@@ -7,6 +7,7 @@ type Query {
   driversByYearAndRound(year: String!, round: Int!): [Driver!]!
   driversById(id: String!): Driver!
   driversStandingsByYear(year: String!): [DriverStanding!]!
+  circuits(perPage: Int, page: Int): [Circuit!]!
 }
 
 type Season {

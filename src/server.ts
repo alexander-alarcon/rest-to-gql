@@ -23,6 +23,7 @@ const server = new ApolloServer({
       races: new datasources.RaceData(),
       drivers: new datasources.DirverData(),
       standings: new datasources.StandingData(),
+      circuits: new datasources.CircuitData(),
     };
   },
 });
