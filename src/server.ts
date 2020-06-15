@@ -22,6 +22,7 @@ const server = new ApolloServer({
       seasons: new datasources.SeasonsData(),
       races: new datasources.RaceData(),
       drivers: new datasources.DirverData(),
+      standings: new datasources.StandingData(),
     };
   },
 });

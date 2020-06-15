@@ -1,5 +1,5 @@
-import { IResolvers } from 'graphql-tools';
 import { ApolloError } from 'apollo-server-express';
+import { IResolvers } from 'graphql-tools';
 
 const query: IResolvers = {
   Query: {
@@ -58,6 +58,16 @@ const query: IResolvers = {
       if (!data) {
         throw new ApolloError(`Driver with ${id}, was not found`, 'NOT FOUND');
       }
+      return data;
+    },
+
+    async driversStandingsByYear(
+      _,
+      { year }: { year: string },
+      { dataSources },
+    ) {
+      const data = await dataSources.standings.getDriversStandingByYear(year);
+
       return data;
     },
   },

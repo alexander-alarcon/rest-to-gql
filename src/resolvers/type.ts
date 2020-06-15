@@ -56,6 +56,24 @@ const type: IResolvers = {
       return urlParser(parent.url);
     },
   },
+
+  DriverStanding: {
+    driver(parent) {
+      return parent.Driver;
+    },
+    constructors(parent) {
+      return parent.Constructors;
+    },
+  },
+
+  Constructor: {
+    id(parent) {
+      return parent.constructorId;
+    },
+    urlMobile(parent) {
+      return urlParser(parent.url);
+    },
+  },
 };
 
 export default type;
