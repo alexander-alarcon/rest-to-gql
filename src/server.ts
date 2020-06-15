@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 import express, { Application, Request, Response } from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import compression from 'compression';
@@ -30,6 +33,8 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
-app.listen(3000, () => {
-  console.log('Server is running on port 3000');
+const { PORT = 3000 } = process.env;
+
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 });
